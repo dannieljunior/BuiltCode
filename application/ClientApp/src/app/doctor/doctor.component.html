@@ -1,0 +1,48 @@
+<div class="box-top">
+    <h1 id="tableLabel">Médicos</h1>
+    <span>
+        <button [disabled]="editMode" type="button" class="btn btn-success btn-lg" (click)="create()">Incluir</button>
+        <a class="btn btn-dark btn-lg" href="/">Voltar</a>
+    </span>
+</div>
+
+<div *ngIf="doctors.length <= 0" style="margin: 32px;" class="alert alert-warning" role="alert">
+    <strong>Nenhum médico cadastrado.</strong>
+</div>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="doctors.length">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>CRM</th>
+            <th>UF</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let doctor of doctors">
+            <td *ngIf="!doctor.edit">{{ doctor.nome }}</td>
+            <td *ngIf="doctor.edit"><input type="text" [(ngModel)]="doctor.nome" /></td>
+
+            <td *ngIf="!doctor.edit">{{ doctor.crm }}</td>
+            <td *ngIf="doctor.edit"><input type="text" [(ngModel)]="doctor.crm" /></td>
+
+            <td *ngIf="!doctor.edit">{{ doctor.crmuf }}</td>
+            <td *ngIf="doctor.edit"><input type="text" [(ngModel)]="doctor.crmuf" /></td>
+
+            <td *ngIf="!doctor.edit" style="width: 200px;">
+                <button type="button" class="btn btn-primary" (click)="update(doctor)">Alterar</button>
+                <button type="button" class="btn btn-danger" (click)="delete(doctor)">Excluir</button>
+            </td>
+            <td *ngIf="doctor.edit" style="width: 200px;">
+                <button type="button" class="btn btn-primary" (click)="save(doctor)">Salvar</button>
+                <button type="button" class="btn btn-danger" (click)="cancel()">Cancelar</button>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="11" style="text-align: center;">Médicos cadastrados: <span
+                    class="badge badge-info">{{doctors.length}}</span></td>
+        </tr>
+    </tfoot>
+</table>
