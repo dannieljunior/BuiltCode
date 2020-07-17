@@ -6,11 +6,7 @@
     </span>
 </div>
 
-<div *ngIf="doctors.length <= 0" style="margin: 32px;" class="alert alert-warning" role="alert">
-    <strong>Nenhum médico cadastrado.</strong>
-</div>
-
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="doctors.length">
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="doctors">
     <thead>
         <tr>
             <th>Nome</th>
@@ -20,14 +16,14 @@
     </thead>
     <tbody>
         <tr *ngFor="let doctor of doctors">
-            <td *ngIf="!doctor.edit">{{ doctor.nome }}</td>
-            <td *ngIf="doctor.edit"><input type="text" [(ngModel)]="doctor.nome" /></td>
+            <td *ngIf="!doctor.edit">{{ doctor.name }}</td>
+            <td *ngIf="doctor.edit"><input type="text" [(ngModel)]="doctor.name" /></td>
 
             <td *ngIf="!doctor.edit">{{ doctor.crm }}</td>
             <td *ngIf="doctor.edit"><input type="text" [(ngModel)]="doctor.crm" /></td>
 
-            <td *ngIf="!doctor.edit">{{ doctor.crmuf }}</td>
-            <td *ngIf="doctor.edit"><input type="text" [(ngModel)]="doctor.crmuf" /></td>
+            <td *ngIf="!doctor.edit">{{ doctor.crmUf }}</td>
+            <td *ngIf="doctor.edit"><input type="text" [(ngModel)]="doctor.crmUf" /></td>
 
             <td *ngIf="!doctor.edit" style="width: 200px;">
                 <button type="button" class="btn btn-primary" (click)="update(doctor)">Alterar</button>
@@ -46,3 +42,7 @@
         </tr>
     </tfoot>
 </table>
+
+<div *ngIf="!doctors" style="margin: 32px;" class="alert alert-warning" role="alert">
+    <strong>Nenhum médico cadastrado.</strong>
+</div>

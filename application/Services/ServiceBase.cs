@@ -5,7 +5,7 @@ namespace application.Services
 {
     public abstract class ServiceBase
     {
-        protected readonly Uow uow;
+        protected readonly IUow uow;
         public ServiceBase(IUow pUow) 
         { 
             uow = pUow;

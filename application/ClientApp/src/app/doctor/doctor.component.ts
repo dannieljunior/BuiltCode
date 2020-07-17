@@ -10,14 +10,13 @@ import { Doctor, DoctorService } from '../services/doctor/doctor.service'
   styleUrls: ['./doctor.component.css']
 })
 export class DoctorComponent implements OnInit, ICrud {
-
-  public doctors: Doctor[];
+  doctors: Doctor[];
   editMode: boolean = false;
   isModified: boolean = false;
 
   private itemSelecionado = {} as Doctor;
 
-  constructor(private service: DoctorService ) {}
+  constructor(private service: DoctorService) { }
 
   ngOnInit() {
     this.read();

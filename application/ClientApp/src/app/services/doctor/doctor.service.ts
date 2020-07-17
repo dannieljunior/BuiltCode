@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export interface Doctor extends IEditableViewModel {
   name: string;
   crm: string;
-  crmuf: string;
+  crmUf: string;
 }
 
 @Injectable({

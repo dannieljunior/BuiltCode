@@ -10,7 +10,7 @@ namespace application.Services
     {
         public DoctorsService(IUow pUow) : base(pUow) 
         { 
-            uow = (Uow)uow;
+            
         }
 
         public async Task<IEnumerable<Doctor>> GetDoctorsAsync()
