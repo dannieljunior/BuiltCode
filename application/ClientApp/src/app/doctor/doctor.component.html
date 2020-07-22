@@ -9,21 +9,22 @@
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="doctors">
     <thead>
         <tr>
-            <th>Nome</th>
-            <th>CRM</th>
-            <th>UF</th>
+            <th style="width: 40%">Nome</th>
+            <th style="width: 20%">CRM</th>
+            <th style="width: 20%">UF</th>
+            <th style="width: 20%"></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let doctor of doctors">
             <td *ngIf="!doctor.edit">{{ doctor.name }}</td>
-            <td *ngIf="doctor.edit"><input type="text" [(ngModel)]="doctor.name" /></td>
+            <td *ngIf="doctor.edit"><input  class="form-control" style="width: 100%" type="text" [(ngModel)]="doctor.name" /></td>
 
             <td *ngIf="!doctor.edit">{{ doctor.crm }}</td>
-            <td *ngIf="doctor.edit"><input type="text" [(ngModel)]="doctor.crm" /></td>
+            <td *ngIf="doctor.edit"><input  class="form-control" style="width: 100%" type="text" [(ngModel)]="doctor.crm" /></td>
 
             <td *ngIf="!doctor.edit">{{ doctor.crmUf }}</td>
-            <td *ngIf="doctor.edit"><input type="text" [(ngModel)]="doctor.crmUf" /></td>
+            <td *ngIf="doctor.edit"><input  class="form-control" style="width: 100%" type="text" [(ngModel)]="doctor.crmUf" /></td>
 
             <td *ngIf="!doctor.edit" style="width: 200px;">
                 <button type="button" class="btn btn-primary" (click)="update(doctor)">Alterar</button>

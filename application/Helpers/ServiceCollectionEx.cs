@@ -11,8 +11,6 @@ namespace application.Helpers
         {
             pServicesCollection.AddScoped<IUow, Uow>();
             pServicesCollection.AddScoped<IDoctorService, DoctorsService>();
-            
-            //pServicesCollection.AddScoped<PatientsService>();
         }
     }
 }
